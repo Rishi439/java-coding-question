@@ -1,22 +1,40 @@
 package com.programming.linkedlist;
 
-import java.util.LinkedList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class MiddleItemLinkedList {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter number of elements in linked list : ");
-		int numOfElements = scanner.nextInt();
-		Random randomGen = new Random();
-		LinkedList<Integer> linkedList = new LinkedList<>();
-		for (int i = 0; i < numOfElements; i++) {
-			linkedList.add(randomGen.nextInt());
+		CustomLinkedList<Integer> integerLinkedList = new CustomLinkedList<>();
+		Random random = new Random();
+		for (int i = 0; i < 10; i++) {
+			int randomNo = random.nextInt();
+			System.out.println("Count : " + i + " | Value : " + randomNo);
+			integerLinkedList.add(randomNo);
+		}
+		System.out.println("====================================");
+		int i = 0;
+
+		for (Integer integer : integerLinkedList) {
+			i++;
+			System.out.println("Count : " + i + " | Value : " + integer);
 		}
 
-		scanner.close();
-	}
+		System.out.println("-------------------------------------------------");
 
+		LinkedList1<Integer> integerLinkedList1 = new LinkedList1<>();
+		for (int j = 0; j < 10; j++) {
+			int randomNo = random.nextInt();
+			System.out.println("Count : " + j + " | Value : " + randomNo);
+			integerLinkedList1.add(randomNo);
+		}
+		System.out.println("====================================");
+		int k = 0;
+
+		for (Integer integer : integerLinkedList1) {
+			k++;
+			System.out.println("Count : " + k + " | Value : " + integer);
+		}
+
+	}
 }
