@@ -15,24 +15,48 @@ public class SortingDemo {
 		int sizeOfArray = scanner.nextInt();
 		Random random = new Random();
 		int[] unsortedArray = new int[sizeOfArray];
+		int[] unsortedArray1 = new int[sizeOfArray];
+
 		List<Integer> unsortedList = new ArrayList<>();
 		for (int i = 0; i < sizeOfArray; i++) {
-			unsortedArray[i] = random.nextInt();
+			int randomNumber = random.nextInt();
+			unsortedArray[i] = randomNumber;
+			unsortedArray1[i] = randomNumber;
 			unsortedList.add(unsortedArray[i]);
 		}
-		Sorting sort = new SelectionSort(unsortedArray);
-		long timeTaken_1 = System.currentTimeMillis();
-		int[] sortedArray = sort.sort();
-		long timeTaken_2 = System.currentTimeMillis();
-		System.out.println(sort.getSortingType() + " Time Taken : " + (timeTaken_2 - timeTaken_1));
+		/*
+		 * Selection Sort
+		 */
+		Sorting selectionSort = new SelectionSort(unsortedArray);
+		long selection_timeTaken_1 = System.currentTimeMillis();
+		int[] selectionSortedArray = selectionSort.sort();
+		long selection_timeTaken_2 = System.currentTimeMillis();
+		System.out.println(
+				selectionSort.getSortingType() + " Time Taken : " + (selection_timeTaken_2 - selection_timeTaken_1));
+		printArray(selectionSortedArray);
+
+		// Insertion Sort
+		Sorting insertionSort = new InsertionSort(unsortedArray1);
+		long insertion_timeTaken_1 = System.currentTimeMillis();
+		int[] insertionSortedArray = insertionSort.sort();
+		long insertion_timeTaken_2 = System.currentTimeMillis();
+		System.out.println(
+				insertionSort.getSortingType() + " Time Taken : " + (insertion_timeTaken_2 - insertion_timeTaken_1));
+		printArray(insertionSortedArray);
+
+		// Bubble Sort
+//		Sorting bubbleSort = new BubbleSort(unsortedArray);
+//		long bubble_timeTaken_1 = System.currentTimeMillis();
+//		int[] bubbleSortedArray = bubbleSort.sort();
+//		long bubble_timeTaken_2 = System.currentTimeMillis();
+//		System.out.println(bubbleSort.getSortingType() + " Time Taken : " + (bubble_timeTaken_2 - bubble_timeTaken_1));
+//		printArray(bubbleSortedArray);
+
+		// Java Sort
 		long time_taken_3 = System.currentTimeMillis();
 		Collections.sort(unsortedList);
 		long time_taken_4 = System.currentTimeMillis();
 		System.out.println("Default  Sort: " + (time_taken_4 - time_taken_3));
-
-		printArray(sortedArray);
-
-		System.out.println("Sorted Array : ");
 		for (int i : unsortedList) {
 			System.out.print(i + " | ");
 		}
@@ -44,6 +68,7 @@ public class SortingDemo {
 		for (int i : array) {
 			System.out.print(i + " | ");
 		}
+		System.out.println();
 
 	}
 

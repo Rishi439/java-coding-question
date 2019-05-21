@@ -7,7 +7,7 @@ public class BubbleSort extends Sorting {
 	private int index;
 
 	public BubbleSort(int[] sortingArray) {
-		super(sortingArray,"Bubble Sort");
+		super(sortingArray, "Bubble Sort");
 	}
 
 	public int[] sort() {
@@ -21,7 +21,6 @@ public class BubbleSort extends Sorting {
 		if (index == sortingArray.length) {
 			index = 0;
 			sortedCount++;
-
 		}
 		if ((index + 1) < sortingArray.length) {
 			if (sortingArray[index] > sortingArray[index + 1]) {
@@ -30,14 +29,11 @@ public class BubbleSort extends Sorting {
 				sortingArray[index + 1] = value;
 			}
 		}
-
 		if (sortedCount == sortingArray.length - 1) {
 			return sortingArray;
 		}
 		index += 1;
-
 		return bubblesort(sortingArray, index, sortedCount, isSorted);
-
 	}
 
 }
