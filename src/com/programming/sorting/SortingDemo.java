@@ -16,15 +16,19 @@ public class SortingDemo {
 		Random random = new Random();
 
 		List<Integer> unsortedList = new ArrayList<>();
+
 		for (int i = 0; i < sizeOfArray; i++) {
-			int randomNumber = random.nextInt();
+		    int randomNumber = random.nextInt(10000);
 			unsortedList.add(randomNumber);
 		}
+		System.out.println("Unsorted List : ");
+		printArray(convertToArray(unsortedList));
 
 		// bubbleSort(convertToArray(unsortedList));
 		// insertionSort(convertToArray(unsortedList));
 		// selectionSort(convertToArray(unsortedList));
 		quickSort(convertToArray(unsortedList));
+		binaryInsertionSort(convertToArray(unsortedList));
 		defaultSort(unsortedList);
 		scanner.close();
 
@@ -90,6 +94,16 @@ public class SortingDemo {
 		for (int i : unsortedList) {
 			System.out.print(i + " | ");
 		}
+	}
+
+	private static void binaryInsertionSort(int[] unsortedArray) {
+		Sorting binaryInsertionSort = new BinaryInsertionSort(unsortedArray);
+		long binaryInsertionSortStartTime = System.currentTimeMillis();
+		int[] binaryInsertionSortedArray = binaryInsertionSort.sort();
+		long binaryInsertionSortEndTime = System.currentTimeMillis();
+		System.out.println(binaryInsertionSort.getSortingType() + " Time Taken : "
+				+ (binaryInsertionSortEndTime - binaryInsertionSortStartTime));
+		printArray(binaryInsertionSortedArray);
 	}
 
 	private static int[] convertToArray(List<Integer> unsortedList) {
