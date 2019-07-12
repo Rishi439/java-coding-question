@@ -6,7 +6,7 @@ public class StringAnagram {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Check if string is anagram 0: ");
+		System.out.println("Check if string is anagram 0.1: ");
 		String anagramStringCheck1 = scanner.nextLine().trim();
 		System.out.println("Check if string is anagram 1: ");
 		String anagramStringCheck2 = scanner.nextLine().trim();
